@@ -10,34 +10,20 @@ local PlayerMouse = Player:GetMouse()
 
 local redzlib = {
     Themes = {
-        Darker = {
+        Cyberpunk = {
             ["Color Hub 1"] = ColorSequence.new({
-                ColorSequenceKeypoint.new(0.00, Color3.fromRGB(15, 15, 15)),
-                ColorSequenceKeypoint.new(0.50, Color3.fromRGB(20, 20, 20)),
-                ColorSequenceKeypoint.new(1.00, Color3.fromRGB(15, 15, 15))
+                ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
+                ColorSequenceKeypoint.new(0.50, Color3.fromRGB(10, 10, 10)),
+                ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))
             }),
-            ["Color Hub 2"] = Color3.fromRGB(10, 10, 10),
-            ["Color Stroke"] = Color3.fromRGB(70, 70, 70),
-            ["Color Theme"] = Color3.fromRGB(150, 150, 150),
-            ["Color Text"] = Color3.fromRGB(220, 220, 220),
-            ["Color Dark Text"] = Color3.fromRGB(140, 140, 140),
-            ["Color Element"] = Color3.fromRGB(25, 25, 25),
-            ["Color Element Stroke"] = Color3.fromRGB(80, 80, 80)
-        },
-        Dark = {
-            ["Color Hub 1"] = ColorSequence.new({
-                ColorSequenceKeypoint.new(0.00, Color3.fromRGB(20, 20, 20)),
-                ColorSequenceKeypoint.new(0.50, Color3.fromRGB(30, 30, 30)),
-                ColorSequenceKeypoint.new(1.00, Color3.fromRGB(20, 20, 20))
-            }),
-            ["Color Hub 2"] = Color3.fromRGB(15, 15, 15),
-            ["Color Stroke"] = Color3.fromRGB(80, 80, 80),
-            ["Color Theme"] = Color3.fromRGB(180, 180, 180),
+            ["Color Hub 2"] = Color3.fromRGB(0, 0, 0),
+            ["Color Stroke"] = Color3.fromRGB(255, 255, 255),
+            ["Color Theme"] = Color3.fromRGB(255, 255, 255),
             ["Color Text"] = Color3.fromRGB(255, 255, 255),
-            ["Color Dark Text"] = Color3.fromRGB(160, 160, 160),
-            ["Color Element"] = Color3.fromRGB(30, 30, 30),
-            ["Color Element Stroke"] = Color3.fromRGB(90, 90, 90)
-        },
+            ["Color Dark Text"] = Color3.fromRGB(200, 200, 200),
+            ["Color Element"] = Color3.fromRGB(0, 0, 0),
+            ["Color Element Stroke"] = Color3.fromRGB(255, 255, 255)
+        }
     }, 
 
     Info = {
@@ -46,7 +32,7 @@ local redzlib = {
     Save = {
         UISize = {550, 380},
         TabSize = 160,
-        Theme = "Dark" 
+        Theme = "Cyberpunk" 
     },
     Settings = {},
     Connection = {},
@@ -1712,21 +1698,9 @@ function redzlib:MakeWindow(Configs)
         Name = "Minimize"
     })
 
-    local CustomButton = SetProps(CloseButton:Clone(), {
-        Position = UDim2.new(1, -60, 0.5),
-        Image = "rbxassetid://16149101469",
-        Name = "CustomScriptButton"
-    })
-    CustomButton.MouseButton1Click:Connect(function()
-        pcall(function()
-            loadstring(game:HttpGet('https://raw.githubusercontent.com/Shelby232127/ede/refs/heads/main/Main.txt'))()
-        end)
-    end)
-
     SetChildren(ButtonsFolder, {
         CloseButton,
-        MinimizeButton,
-        CustomButton
+        MinimizeButton
     })
     
     local Minimized, SaveSize, WaitClick
