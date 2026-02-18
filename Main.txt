@@ -30,8 +30,8 @@ local redzlib = {
         Version = "1.2.0"
     },
     Save = {
-UISize = {625, 415},
-TabSize = 180,
+UISize = {580, 390},
+TabSize = 165,
         Theme = "Cyberpunk" 
     },
     Settings = {},
